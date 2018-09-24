@@ -99,7 +99,7 @@ class CreateProfile extends Component {
                                     info="A unique handler for your profile URL."
                                 />
                                 <SelectListGroup
-                                    name="Status"
+                                    name="status"
                                     onChange={this.onChange}
                                     value={this.state.status}
                                     error={errors.status}
