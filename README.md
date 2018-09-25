@@ -1,3 +1,6 @@
+This is still a project in progress. 
+Has bugs that need to be addressed as well as features that I'm looking to add in the future.
+
 # DevConnector
 
 > A social media platform for developers built using MERN stack
@@ -31,3 +34,4 @@ module.exports = {
   secretOrKey: 'YOUR_OWN_SECRET'
 };
 ```
+
