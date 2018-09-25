@@ -3,7 +3,6 @@ import isEmpty from '../../validation/is-empty';
 
 class ProfileHeader extends Component {
     render() {
-        console.log(this.props);
         const { profile } = this.props;
 
         return (
