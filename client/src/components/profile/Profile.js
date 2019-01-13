@@ -5,13 +5,23 @@ import ProfileAbout from './ProfileAbout';
 import ProfileCreds from './ProfileCreds';
 import ProfileGithub from './ProfileGithub';
 import { ClipLoader } from 'react-spinners';
-import { Link } from 'react-router-dom';
 import { getProfileByHandle } from '../../actions/profileActions'
 
 class Profile extends Component {
     componentDidMount() {
-        if (this.props.match.params.handle) {
-            this.props.getProfileByHandle(this.props.match.params.handle);
+        const { getProfileByHandle } = this.props;
+        const { handle } = this.props.match.params;
+        if (handle) {
+            getProfileByHandle(handle);
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const { profile, loading } = nextProps.profile;
+        const { history, errors } = nextProps;
+        const profileNotExist = (errors.noprofile) && (profile == null);
+        if (profileNotExist && loading) {
+            history.push('/not-found');
         }
     }
     render() {
@@ -37,8 +47,9 @@ class Profile extends Component {
                         education={profile.education}
                         experience={profile.experience}
                     />
+                    <br></br>
                     {profile.githubusername ? (
-                        <ProfileGithub username={profile.githubusername} />
+                        <ProfileGithub username={profile.githubusername} name={profile.user.name} />
                     ) : null}
                 </div>
             );
@@ -57,6 +68,7 @@ class Profile extends Component {
 
 const mapStateToProps = state => ({
     profile: state.profile,
+    errors: state.errors
 })
 
 export default connect(mapStateToProps, { getProfileByHandle })(Profile);
