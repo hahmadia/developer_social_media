@@ -48,11 +48,11 @@ class EditProfile extends Component {
                 skills: isEmpty(profile.skills) ? '' : profile.skills.join(","),
                 githubusername: isEmpty(profile.githubusername) ? '' : profile.githubusername,
                 bio: isEmpty(profile.bio) ? '' : profile.bio,
-                twitter: isEmpty(profile.twitter) ? '' : profile.twitter,
-                facebook: isEmpty(profile.facebook) ? '' : profile.facebook,
-                linkedin: isEmpty(profile.linkedin) ? '' : profile.linkedin,
-                youtube: isEmpty(profile.youtube) ? '' : profile.youtube,
-                instagram: isEmpty(profile.instagram) ? '' : profile.instagram,
+                twitter: isEmpty(profile.social.twitter) ? '' : profile.social.twitter,
+                facebook: isEmpty(profile.social.facebook) ? '' : profile.social.facebook,
+                linkedin: isEmpty(profile.social.linkedin) ? '' : profile.social.linkedin,
+                youtube: isEmpty(profile.social.youtube) ? '' : profile.social.youtube,
+                instagram: isEmpty(profile.social.instagram) ? '' : profile.social.instagram,
             })
         }
     }

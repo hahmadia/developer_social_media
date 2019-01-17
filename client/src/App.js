@@ -21,6 +21,7 @@ import AddEducation from './components/add-credentials/AddEducation';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import NotFound from './components/not-found/NotFound'
+import Posts from './components/posts/Posts';
 import './App.css';
 import { clearCurrentProfile } from './actions/profileActions';
 
@@ -69,6 +70,9 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/add-education" component={AddEducation} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/feed" component={Posts} />
               </Switch>
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
